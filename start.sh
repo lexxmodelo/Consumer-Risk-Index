@@ -5,13 +5,16 @@
 
 echo "🚀 Starting Consumer Risk Index deployment on Railway"
 
+# Set working directory to backend for Python runtime
+echo "📁 Setting working directory to backend..."
+cd backend
+
 # Check if we're running in production (Railway sets RAILWAY_ENVIRONMENT)
 if [ "$RAILWAY_ENVIRONMENT" = "production" ]; then
     echo "📦 Production environment detected"
     
     # Install backend dependencies
     echo "🐍 Installing Python dependencies..."
-    cd backend
     pip install -r requirements.txt
     
     # Run database migrations (if needed)
@@ -36,17 +39,12 @@ asyncio.run(setup())
     uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 2
     
 else
-    echo "🔧 Development mode - using Docker Compose"
+    echo "🔧 Development mode detected"
     
-    # For development/local testing, use docker-compose
-    if command -v docker-compose &> /dev/null; then
-        echo "🐳 Starting with Docker Compose..."
-        docker-compose up --build
-    else
-        echo "❌ Docker Compose not found. Please install Docker Desktop."
-        echo "💡 Alternatively, run the backend and frontend separately:"
-        echo "   Backend: cd backend && uvicorn app.main:app --reload"
-        echo "   Frontend: cd frontend && npm run dev"
-        exit 1
-    fi
+    # For Railway development or local testing
+    echo "� Installing Python dependencies..."
+    pip install -r requirements.txt
+    
+    echo "� Starting FastAPI server with reload..."
+    uvicorn app.main:app --host 0.0.0.0 --port $PORT --reload
 fi
