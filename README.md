@@ -1,10 +1,15 @@
 # Consumer Risk Index
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)
+![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
+![Railway](https://img.shields.io/badge/railway-0B0D0E?style=flat&logo=railway&logoColor=white)
 
 Personal project for analyzing consumer financial stress patterns using public economic data from FRED.
-
-## 📸 SCREENSHOTS
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f50f3d98-4ebe-4672-a446-5f6715ec8cb0" alt="CSI-Logo_Light" width="600" />
