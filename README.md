@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="390" height="390" alt="CSI-Logo_Light" src="https://github.com/user-attachments/assets/f50f3d98-4ebe-4672-a446-5f6715ec8cb0" />
+</p>
+
 # Consumer Risk Index
 
 Personal project for analyzing consumer financial stress patterns using public economic data from FRED.
@@ -198,10 +202,11 @@ curl -X GET "http://localhost:8000/api/risk-assessment"
 curl -X GET "http://localhost:8000/api/risk-timeline"
 ```
 
-### Screenshots or Demo GIF
-**[PLACEHOLDER: Add dashboard screenshot]**
-**[PLACEHOLDER: Add risk timeline visualization]**
-**[PLACEHOLDER: Add comparison tool screenshot]**
+### Screenshots & Demo GIF
+<img width="1919" height="962" alt="Dashboard" src="https://github.com/user-attachments/assets/c6f824df-2c82-4707-bce8-8fc745f87f71" />
+<img width="1919" height="962" alt="image" src="https://github.com/user-attachments/assets/3d98a406-4139-4101-a516-2bf9ea5e5907" />
+<img width="1919" height="961" alt="image" src="https://github.com/user-attachments/assets/0db6eb82-70c9-43b3-9f98-37fa274e96bd" />
+
 
 ## RUNNING LOCALLY
 
