@@ -288,7 +288,7 @@ export default function Dashboard() {
     const dataMap = new Map<string, ChartData>()
     data.forEach(d => dataMap.set(d.date, d))
 
-    return displayData.map(item => {
+    return displayData.map((item: ChartData) => {
       const newItem: ChartData = { ...item }
       const parts = item.date.split('-')
       if (parts.length === 3) {
@@ -324,7 +324,7 @@ export default function Dashboard() {
     const sourceData = isYoYModeActive ? yoyData : (useNormalized ? normalizedData : displayData)
     if (!isMaVisible) return sourceData
 
-    return sourceData.map((item, index, arr) => {
+    return sourceData.map((item: ChartData, index: number, arr: ChartData[]) => {
       const newItem = { ...item }
       visibleKeys.forEach(key => {
         // Calculate SMA
