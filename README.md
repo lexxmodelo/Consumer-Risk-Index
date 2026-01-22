@@ -415,9 +415,6 @@ This is a personal project built with:
 
 ## ADDITIONAL
 
-### License Information
-**[PLACEHOLDER: Add license information - MIT recommended]**
-
 ### Acknowledgments
 - **Federal Reserve Economic Data (FRED)**: Primary data source
 - **TimescaleDB**: Time-series database optimization
