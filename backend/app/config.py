@@ -10,7 +10,7 @@ ENV = os.getenv("ENV", "development")
 
 class Settings(BaseSettings):
     # Database
-    USE_DATABASE: bool = False
+    USE_DATABASE: bool = True
     DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/consumerriskindex"
     DB_MAX_CONNECTIONS: int = 10
 
