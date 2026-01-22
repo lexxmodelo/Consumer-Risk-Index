@@ -6,6 +6,14 @@
 
 Personal project for analyzing consumer financial stress patterns using public economic data from FRED.
 
+## 🚀 LIVE DEMO
+[**Access the Consumer Risk Index**](https://consumerriskindex.up.railway.app/)
+
+> **Note**: This project is deployed on the **Railway Free Plan**.
+> - The application may spin down after periods of inactivity (cold starts may take 30-60s).
+> - Availability is subject to monthly usage limits and free tier constraints.
+> - If the app is unreachable, it may have exhausted its free hours for the month.
+
 ## ABOUT
 
 This is a personal analytics dashboard that monitors key economic indicators to detect potential consumer financial stress patterns. It uses FRED API data with custom analysis for early warning detection.
