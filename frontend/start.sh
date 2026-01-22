@@ -12,5 +12,5 @@ npm run build
 # Install serve to serve static files
 npm install -g serve
 
-# Serve the build folder on the Railway PORT
-serve -s build -l $PORT
+# Serve the dist folder on the Railway PORT
+serve -s dist -l $PORT
