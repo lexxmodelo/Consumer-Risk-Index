@@ -59,15 +59,27 @@ async def verify_admin(request: Request):
 @app.on_event("startup")
 async def startup():
     if settings.USE_DATABASE and engine:
+        # Log DB connection info (masked)
+        db_url = settings.DATABASE_URL
+        masked_url = db_url
+        if "@" in db_url:
+            prefix = db_url.split("@")[0]
+            masked_url = f"{prefix.split('//')[0]}//****:****@{db_url.split('@')[1]}"
+        
+        logger.info(f"Connecting to database at: {masked_url}")
+        
         try:
+            logger.info("Attempting to initialize database tables...")
             async with engine.begin() as conn:
                 # In production, use Alembic for migrations
                 # For MVP, create tables if they don't exist
                 await conn.run_sync(Base.metadata.create_all)
+            logger.info("Database tables initialized successfully.")
         except Exception as e:
-            logger.warning(f"Database connection failed at startup: {e}")
+            logger.error(f"Database connection failed at startup: {e}")
+            logger.error(f"Please check your DATABASE_URL and ensure the database server is reachable.")
     else:
-        logger.info("Database disabled via configuration.")
+        logger.info(f"Database disabled via configuration. USE_DATABASE={settings.USE_DATABASE}")
         
     warmup_service.start()
     import asyncio

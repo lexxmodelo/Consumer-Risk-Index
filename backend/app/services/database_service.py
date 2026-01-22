@@ -99,6 +99,13 @@ class DatabaseService:
             # Log only if status changed or it's been a while to avoid log spam
             if self._db_available is not False:
                 logger.warning(f"Database health check failed: {str(e)}")
+                # Diagnostic info
+                db_url = settings.DATABASE_URL
+                masked_url = db_url
+                if "@" in db_url:
+                    prefix = db_url.split("@")[0]
+                    masked_url = f"{prefix.split('//')[0]}//****:****@{db_url.split('@')[1]}"
+                logger.info(f"Diagnostics: USE_DATABASE={self.use_database}, URL={masked_url}")
             
             is_available = False
             # Cache failure for shorter time (30s) to allow recovery detection
