@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pandas
+python-dotenv
+asyncpg
+sqlalchemy
+httpx
+fredapi
+aiocache==0.12.1
+aiohttp==3.9.1
+python-dateutil==2.8.2
+apscheduler==3.10.4
+pydantic-settings
+aiofiles
+orjson

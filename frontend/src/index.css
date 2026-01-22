@@ -1,0 +1,3 @@
+/* Reset and minimal base to avoid layout constraints */
+:root {}
+body { margin: 0; }
