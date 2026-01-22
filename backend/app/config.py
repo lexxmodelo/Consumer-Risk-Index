@@ -1,5 +1,5 @@
 import os
-from typing import List, Union
+from typing import List, Union, Optional
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
@@ -39,6 +39,17 @@ class Settings(BaseSettings):
             except json.JSONDecodeError:
                 # Fallback for comma-separated string with no brackets
                 return [origin.strip() for origin in v.split(",")]
+        return v
+
+    @field_validator("DATABASE_URL")
+    def assemble_db_connection(cls, v: Optional[str]) -> str:
+        if not v:
+            return v
+        # Ensure AsyncPG driver is used for async support
+        if v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql+asyncpg://", 1)
+        if v.startswith("postgresql://") and "+asyncpg" not in v:
+            return v.replace("postgresql://", "postgresql+asyncpg://", 1)
         return v
 
     # pydantic-settings v2 configuration
