@@ -15,7 +15,10 @@ if [ "$RAILWAY_ENVIRONMENT" = "production" ]; then
     
     # Install backend dependencies
     echo "🐍 Installing Python dependencies..."
-    pip install -r requirements.txt
+    python -m ensurepip --upgrade   # ensures pip exists
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+
     
     # Run database migrations (if needed)
     echo "🗄️  Initializing database..."
@@ -36,7 +39,7 @@ asyncio.run(setup())
     
     # Start the backend server
     echo "🔧 Starting FastAPI server..."
-    uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 2
+    exec python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 2
     
 else
     echo "🔧 Development mode detected"
